@@ -1,0 +1,90 @@
+.footer-container {
+  width: 100%;
+  position: relative;
+  padding: 40px 24px 32px 24px;
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.footer-divider-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  max-width: 600px;
+  width: 100%;
+  z-index: 2;
+}
+
+.footer-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(203, 213, 225, 0.2), #cbd5e1 50%, rgba(203, 213, 225, 0.2));
+}
+
+.footer-tagline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: #64748b;
+  white-space: nowrap;
+  letter-spacing: 0.2px;
+}
+
+.footer-heart {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  transform: translateY(0.5px);
+}
+
+.footer-heart svg {
+  transition: transform 0.2s ease, stroke 0.2s ease;
+}
+
+.footer-tagline:hover .footer-heart svg {
+  transform: scale(1.2);
+  stroke: #ef4444;
+}
+
+/* Subtle building illustration pinned at bottom right */
+.footer-building-wrapper {
+  position: absolute;
+  right: 48px;
+  bottom: 12px;
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 1;
+  transition: opacity 0.3s ease;
+}
+
+@media (max-width: 1024px) {
+  .footer-building-wrapper {
+    right: 20px;
+    bottom: 6px;
+    opacity: 0.35;
+    transform: scale(0.85);
+    transform-origin: bottom right;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-container {
+    padding: 30px 16px 24px 16px;
+  }
+
+  .footer-building-wrapper {
+    display: none; /* Hide on small mobile to avoid overlaying on text */
+  }
+
+  .footer-tagline {
+    font-size: 0.8rem;
+    gap: 6px;
+  }
+}
