@@ -1,10 +1,13 @@
 import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/useAuth';
 import './Navbar.css';
 
 export const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+  const { isAdminAuthenticated, logout } = useAuth();
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
@@ -12,6 +15,13 @@ export const Navbar = () => {
 
   const closeMobileMenu = () => {
     setMobileMenuOpen(false);
+  };
+
+  const handleLogoutClick = async (e) => {
+    e.preventDefault();
+    closeMobileMenu();
+    await logout();
+    navigate('/');
   };
 
   return (
@@ -68,73 +78,82 @@ export const Navbar = () => {
                 Home
               </Link>
             </li>
+
+            {/* CONDITIONAL AUTH LINKS:
+                Before Admin login: Show Home and Login. Do NOT show Logout.
+                After Admin login: Show Home and Logout. Do NOT show Login. */}
+            {isAdminAuthenticated ? (
+              <li>
+                <button
+                  type="button"
+                  className="nav-link nav-logout-btn"
+                  onClick={handleLogoutClick}
+                  style={{ background: 'none', border: 'none', cursor: 'pointer', font: 'inherit' }}
+                >
+                  Logout
+                </button>
+              </li>
+            ) : (
+              <li>
+                <Link
+                  to="/login/admin"
+                  className={`nav-link ${location.pathname.startsWith('/login') ? 'active' : ''}`}
+                  onClick={closeMobileMenu}
+                >
+                  Login
+                </Link>
+              </li>
+            )}
+
             <li>
-              <a
-                href="#login"
-                className="nav-link"
-                onClick={(e) => {
-                  e.preventDefault();
-                  alert('Login feature will be available once backend is connected.');
-                  closeMobileMenu();
-                }}
-              >
-                Login
-              </a>
-            </li>
-            <li>
-              <a
-                href="#about"
-                className="nav-link"
-                onClick={(e) => {
-                  e.preventDefault();
-                  alert('Hostel Management System: Providing smart room allocation, warden approvals, attendance tracking, and parent updates.');
-                  closeMobileMenu();
-                }}
+              <Link
+                to="/about"
+                className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`}
+                onClick={closeMobileMenu}
               >
                 About
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#contact"
-                className="nav-link"
-                onClick={(e) => {
-                  e.preventDefault();
-                  alert('Contact Hostel Administration: hostel-admin@campus.edu | +1 (800) 555-HOSTEL');
-                  closeMobileMenu();
-                }}
+              <Link
+                to="/contact"
+                className={`nav-link ${location.pathname === '/contact' ? 'active' : ''}`}
+                onClick={closeMobileMenu}
               >
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
 
-          {/* Blue Rounded Register Button */}
-          <Link
-            to="/"
-            className="navbar-register-btn"
-            onClick={closeMobileMenu}
-          >
-            {/* User-Plus SVG Icon */}
-            <svg
-              className="register-btn-icon"
-              viewBox="0 0 24 24"
-              width="18"
-              height="18"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
+          {/* REGISTER CTA:
+              Visible to public users.
+              IMPORTANT RULE: NOT visible to an authenticated Admin. */}
+          {!isAdminAuthenticated && (
+            <Link
+              to="/"
+              className="navbar-register-btn"
+              onClick={closeMobileMenu}
             >
-              <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-              <circle cx="8.5" cy="7" r="4" />
-              <line x1="20" y1="8" x2="20" y2="14" />
-              <line x1="23" y1="11" x2="17" y2="11" />
-            </svg>
-            <span>Register</span>
-          </Link>
+              <svg
+                className="register-btn-icon"
+                viewBox="0 0 24 24"
+                width="18"
+                height="18"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="8.5" cy="7" r="4" />
+                <line x1="20" y1="8" x2="20" y2="14" />
+                <line x1="23" y1="11" x2="17" y2="11" />
+              </svg>
+              <span>Register</span>
+            </Link>
+          )}
         </nav>
       </div>
     </header>

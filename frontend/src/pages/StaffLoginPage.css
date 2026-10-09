@@ -1,0 +1,201 @@
+/* College Staff Login Page Styling */
+.staff-login-wrapper {
+  position: relative;
+  min-height: calc(100vh - 70px);
+  background: linear-gradient(135deg, #fcfaff 0%, #f4f0fb 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-x: hidden;
+}
+
+.bg-shape-staff-log-1 {
+  position: absolute;
+  top: -100px;
+  right: -80px;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(109, 72, 200, 0.12) 0%, rgba(109, 72, 200, 0) 70%);
+  pointer-events: none;
+}
+
+.bg-shape-staff-log-2 {
+  position: absolute;
+  bottom: 40px;
+  left: -100px;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(142, 107, 235, 0.08) 0%, rgba(142, 107, 235, 0) 70%);
+  pointer-events: none;
+}
+
+.staff-login-main {
+  max-width: 500px;
+  width: 100%;
+  margin: 2.5rem auto;
+  padding: 0 1.25rem;
+  position: relative;
+  z-index: 2;
+}
+
+.staff-login-card {
+  background: #ffffff;
+  border: 1px solid #dfd2fa;
+  border-radius: 1.25rem;
+  padding: 2.5rem 2.25rem;
+  box-shadow: 0 12px 35px -5px rgba(109, 72, 200, 0.12);
+}
+
+.staff-login-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.staff-login-avatar {
+  margin: 0 auto 0.75rem auto;
+  display: flex;
+  justify-content: center;
+}
+
+.staff-badge-chip {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #6d48c8;
+  background: #f3f0fd;
+  padding: 0.3rem 0.85rem;
+  border-radius: 9999px;
+  margin-bottom: 0.6rem;
+}
+
+.staff-login-title {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #1e1b4b;
+  margin: 0 0 0.5rem 0;
+}
+
+.staff-login-subtitle {
+  font-size: 0.92rem;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* Alerts */
+.staff-login-alert {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  border-radius: 0.75rem;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.staff-login-alert.error {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+}
+
+.staff-login-alert.success {
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  color: #047857;
+}
+
+/* Form */
+.staff-login-form .form-group {
+  margin-bottom: 1.25rem;
+}
+
+.staff-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon-left {
+  position: absolute;
+  left: 0.9rem;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+
+.staff-input-container input {
+  width: 100%;
+  padding: 0.75rem 2.75rem 0.75rem 2.6rem;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 0.65rem;
+  font-size: 0.95rem;
+  color: #1e293b;
+  background: #ffffff;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.staff-input-container input:focus {
+  outline: none;
+  border-color: #6d48c8;
+  box-shadow: 0 0 0 3px rgba(109, 72, 200, 0.12);
+}
+
+.staff-login-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.5rem;
+  background: #6d48c8;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(109, 72, 200, 0.25);
+  margin-top: 1.5rem;
+}
+
+.staff-login-btn:hover:not(:disabled) {
+  background: #5a37b3;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(109, 72, 200, 0.3);
+}
+
+.staff-login-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.staff-login-footer-links {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #f1ecfa;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.staff-login-footer-links a {
+  color: #6d48c8;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.staff-login-footer-links a:hover {
+  text-decoration: underline;
+}

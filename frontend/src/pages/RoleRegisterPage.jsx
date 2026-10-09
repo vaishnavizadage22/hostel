@@ -8,6 +8,7 @@ import {
   StudentAvatar,
 } from '../components/RoleAvatars';
 import { Footer } from '../components/Footer';
+import { api } from '../services/api';
 import './RoleRegisterPage.css';
 
 const roleConfig = {
@@ -87,11 +88,25 @@ export const RoleRegisterPage = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (formData.password !== formData.confirmPassword) {
       alert('Passwords do not match. Please check again.');
       return;
+    }
+    if (role === 'parent') {
+      try {
+        await api.registerParent({
+          full_name: formData.fullName,
+          mobile: formData.phone,
+          email: formData.email,
+          student_id: formData.roleSpecific,
+          password: formData.password,
+        });
+      } catch (err) {
+        alert(err.message || 'Parent registration failed');
+        return;
+      }
     }
     setSubmitted(true);
   };
@@ -290,7 +305,7 @@ export const RoleRegisterPage = () => {
 
               <div className="form-footer-login">
                 <span>Already registered? </span>
-                <Link to="/" style={{ color: currentRole.accentColor, fontWeight: 600 }}>
+                <Link to={role === 'parent' ? '/login/parent' : '/'} style={{ color: currentRole.accentColor, fontWeight: 600 }}>
                   Log in here
                 </Link>
               </div>

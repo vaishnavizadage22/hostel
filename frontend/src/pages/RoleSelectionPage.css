@@ -61,30 +61,34 @@
 /* Header Text Section */
 .selection-header-section {
   text-align: center;
-  max-width: 720px;
+  max-width: 780px;
   margin-bottom: 38px;
-}
-
-.selection-subheading {
-  display: inline-block;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #4b6584;
-  letter-spacing: -0.1px;
-  margin-bottom: 6px;
 }
 
 .selection-title {
   font-size: 2.5rem;
   font-weight: 800;
-  color: #0f172a;
+  color: #1d4ed8;
   letter-spacing: -0.8px;
-  line-height: 1.18;
-  margin-bottom: 10px;
+  line-height: 1.22;
+  margin-bottom: 12px;
+}
+
+.selection-account-label {
+  display: inline-block;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #475569;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  padding: 5px 18px;
+  border-radius: 9999px;
+  margin-bottom: 12px;
+  letter-spacing: 0.2px;
 }
 
 .selection-subtitle {
-  font-size: 1.05rem;
+  font-size: 1.02rem;
   font-weight: 400;
   color: #64748b;
   line-height: 1.5;
@@ -144,43 +148,90 @@
 
 @media (max-width: 768px) {
   .role-selection-main {
-    padding: 32px 18px 16px 18px;
+    padding: 28px 16px 20px 16px;
+    padding-bottom: max(24px, env(safe-area-inset-bottom));
   }
 
-  .selection-subheading {
-    font-size: 0.88rem;
+  .selection-header-section {
+    margin-bottom: 28px;
+    padding: 0 4px;
   }
 
   .selection-title {
-    font-size: 1.85rem;
-    letter-spacing: -0.5px;
+    font-size: clamp(1.45rem, 5.2vw, 1.85rem);
+    letter-spacing: -0.4px;
+    line-height: 1.25;
+    margin-bottom: 10px;
+    word-break: break-word;
+  }
+
+  .selection-account-label {
+    font-size: 0.92rem;
+    padding: 4px 14px;
+    margin-bottom: 10px;
   }
 
   .selection-subtitle {
-    font-size: 0.95rem;
+    font-size: 0.92rem;
+    line-height: 1.45;
   }
 
   .selection-blue-divider {
-    margin-top: 14px;
-    width: 44px;
+    margin-top: 12px;
+    width: 40px;
     height: 3px;
   }
 
   .role-cards-container {
-    gap: 18px;
+    gap: 16px;
+    width: 100%;
   }
 
   .cards-row {
-    gap: 18px;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
   }
 }
 
 @media (max-width: 480px) {
-  .selection-title {
-    font-size: 1.65rem;
+  .role-selection-wrapper {
+    min-height: 100vh;
   }
 
   .role-selection-main {
-    padding: 24px 14px 12px 14px;
+    padding: 20px 12px 16px 12px;
+    padding-bottom: max(20px, env(safe-area-inset-bottom));
+  }
+
+  .selection-title {
+    font-size: clamp(1.3rem, 6vw, 1.6rem);
+    letter-spacing: -0.3px;
+    line-height: 1.28;
+  }
+
+  .selection-subtitle {
+    font-size: 0.86rem;
+  }
+
+  .bg-shape-top-left {
+    width: 200px;
+    height: 200px;
+    left: -40px;
+    top: -20px;
+    opacity: 0.4;
+  }
+
+  .bg-shape-bottom-left {
+    width: 220px;
+    height: 220px;
+    opacity: 0.4;
+  }
+
+  .bg-shape-top-right {
+    width: 180px;
+    height: 180px;
+    opacity: 0.35;
   }
 }

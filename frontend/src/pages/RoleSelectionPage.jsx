@@ -88,10 +88,12 @@ export const RoleSelectionPage = () => {
       <main className="role-selection-main">
         {/* Header Heading Section */}
         <section className="selection-header-section">
-          <span className="selection-subheading">
+          <h1 className="selection-title">
             Welcome to Hostel Management System
-          </span>
-          <h1 className="selection-title">Create Your Account</h1>
+          </h1>
+          <div className="selection-account-label">
+            Create Your Account
+          </div>
           <p className="selection-subtitle">
             Select your role to continue with the registration process.
           </p>

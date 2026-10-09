@@ -1,0 +1,375 @@
+/* Student Face Verify CSS */
+
+.face-verify-page-wrapper {
+  position: relative;
+  min-height: calc(100vh - 72px);
+  background-color: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  padding: 40px 20px 60px;
+}
+
+.verify-bg-shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+.verify-blob-left {
+  width: 420px;
+  height: 420px;
+  top: -100px;
+  left: -120px;
+  background: radial-gradient(circle, rgba(216, 55, 107, 0.12) 0%, rgba(216, 55, 107, 0) 70%);
+}
+
+.verify-blob-right {
+  width: 480px;
+  height: 480px;
+  bottom: 80px;
+  right: -100px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.12) 0%, rgba(37, 99, 235, 0) 70%);
+}
+
+.face-verify-container {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Header */
+.verify-header-section {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.verify-step-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #fdf2f8;
+  color: #d8376b;
+  border: 1px solid #fbcfe8;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin-bottom: 12px;
+}
+
+.step-num {
+  font-weight: 800;
+}
+
+.step-divider {
+  color: #f472b6;
+}
+
+.verify-page-title {
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.025em;
+  margin: 0 0 10px;
+}
+
+.verify-page-subtitle {
+  font-size: 1rem;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.student-id-tag {
+  background-color: #ede9fe;
+  color: #6d28d9;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-family: monospace;
+}
+
+/* Card */
+.face-verify-card {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 12px 36px -4px rgba(15, 23, 42, 0.08), 0 4px 12px -2px rgba(15, 23, 42, 0.03);
+  border: 1px solid #e2e8f0;
+  padding: 32px;
+  margin-bottom: 24px;
+}
+
+.verify-card-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.security-icon-circle {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background-color: #eff6ff;
+  border: 1px solid #dbeafe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.verify-card-titles {
+  flex: 1;
+}
+
+.verify-subheading {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 4px;
+}
+
+.verify-instructions {
+  font-size: 0.88rem;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Banners */
+.verify-banner-success {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background-color: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  border-radius: 14px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  animation: fadeInSlide 0.3s ease-out;
+}
+
+.verify-banner-danger {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 14px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  animation: fadeInSlide 0.3s ease-out;
+}
+
+.status-badge-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.success-icon {
+  background-color: #d1fae5;
+}
+
+.danger-icon {
+  background-color: #fee2e2;
+}
+
+.banner-text h4 {
+  margin: 0 0 4px;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.verify-banner-success .banner-text h4 {
+  color: #065f46;
+}
+
+.verify-banner-danger .banner-text h4 {
+  color: #991b1b;
+}
+
+.banner-text p {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+
+.verify-banner-success .banner-text p {
+  color: #047857;
+}
+
+.verify-banner-danger .banner-text p {
+  color: #b91c1c;
+}
+
+/* Analyzing Spinner Bar */
+.biometric-analyzing-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #1e40af;
+  padding: 12px 18px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.analyzing-spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #93c5fd;
+  border-top-color: #1d4ed8;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* Scanner Wrapper */
+.verify-scanner-wrapper {
+  margin-bottom: 20px;
+}
+
+/* Failure Actions */
+.verify-failure-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.btn-retry-scan {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #d8376b 0%, #b82354 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 24px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+  box-shadow: 0 4px 12px rgba(216, 55, 107, 0.25);
+}
+
+.btn-retry-scan:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(216, 55, 107, 0.35);
+}
+
+.btn-cancel-login {
+  display: inline-block;
+  text-align: center;
+  color: #64748b;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 8px;
+  transition: color 0.15s;
+}
+
+.btn-cancel-login:hover {
+  color: #0f172a;
+  text-decoration: underline;
+}
+
+/* Note */
+.biometric-note {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 24px;
+  padding: 12px 16px;
+  background-color: #f8fafc;
+  border-radius: 10px;
+  border: 1px dashed #cbd5e1;
+  font-size: 0.82rem;
+  color: #64748b;
+  line-height: 1.4;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .face-verify-container {
+    padding: 24px 14px;
+    padding-bottom: max(28px, env(safe-area-inset-bottom));
+  }
+
+  .face-verify-card {
+    padding: 20px 14px;
+    border-radius: 16px;
+  }
+
+  .verify-page-title {
+    font-size: clamp(1.4rem, 5.5vw, 1.7rem);
+  }
+
+  .verify-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .verify-card-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .verify-subheading {
+    font-size: 1.1rem;
+  }
+
+  .btn-submit-verify,
+  .btn-cancel-login {
+    width: 100%;
+    min-height: 48px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .face-verify-card {
+    padding: 16px 10px;
+  }
+
+  .biometric-note {
+    font-size: 0.76rem;
+    padding: 10px;
+  }
+}
